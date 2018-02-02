@@ -75,8 +75,9 @@
        "c:/programs/MinGW/bin"
        "c:/programs/MinGW/msys/1.0/bin"
        ;; python (note that whitespaces in the path screw up the emacs mode)
-       "c:/Programs/Python/WinPython-64bit-2.7.10.2"
-       "c:/Programs/Python/WinPython-64bit-2.7.10.2/scripts"
+       "d:/Programs/Miniconda3"
+       "d:/Programs/Miniconda3/Scripts"
+       "d:/Programs/Miniconda3/Library/bin"
        ))))
    ((equal system-type 'gnu/linux)
     (cond
@@ -201,11 +202,14 @@
 
 ;; PYTHON
 ;; --------------------------------------
+;; for everything to work fine, do a:
+;;   conda install jedi flake8 pep8 autopep8 yapf
+;; in your python environment`
 
 (elpy-enable)
 
 ;; environments
-(setenv "WORKON_HOME" "path-to-python-envs")
+(setenv "WORKON_HOME" "d:/Programs/Miniconda3/envs")
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)
@@ -284,7 +288,7 @@
  ;; If there is more than one, they won't work right.
  '(elpy-django-command "manage.py")
  '(elpy-test-django-runner-manage-command (quote ("manage.py" "test")))
- '(elpy-test-django-with-manage t)
+ '(elpy-test-django-with-manage t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
