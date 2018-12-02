@@ -43,6 +43,12 @@
     js2-refactor ; js refactoring
     xref-js2 ; js cross-references
     company-tern ; js autocompletion
+    ;; clojure
+    clojure-mode
+    cider
+    ;; generic lisp
+    paredit
+    rainbow-delimiters
     ))
 
 (mapc #'(lambda (package)
@@ -271,11 +277,45 @@
             (setq TeX-PDF-mode t)))
 (setq reftex-plug-into-AUCTeX t)
 
+
 ;; PROJECTS
 ;; --------------------------------------
 
 ;; (require 'projectile)
 ;; (setq projectile-switch-project-action 'neotree-projectile-action)
+
+
+;; Clojure
+;; --------------------------------------
+
+;; Enable paredit for Clojure
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+
+;; This is useful for working with camel-case tokens, like names of
+;; Java classes (e.g. JavaClassName)
+(add-hook 'clojure-mode-hook 'subword-mode)
+
+;; provides minibuffer documentation for the code you're typing into the repl
+(add-hook 'cider-mode-hook 'eldoc-mode)
+
+;; go right to the REPL buffer when it's finished connecting
+(setq cider-repl-pop-to-buffer-on-connect t)
+
+;; When there's a cider error, show its buffer and switch to it
+(setq cider-show-error-buffer t)
+(setq cider-auto-select-error-buffer t)
+
+;; Where to store the cider history.
+(setq cider-repl-history-file "~/.emacs.d/cider-history")
+
+;; Wrap when navigating history.
+(setq cider-repl-wrap-history t)
+
+;; enable paredit in your REPL
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+
+;; Use clojure mode for other extensions
+(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
 
 
 ;; --------------------------------------
@@ -288,7 +328,10 @@
  ;; If there is more than one, they won't work right.
  '(elpy-django-command "manage.py")
  '(elpy-test-django-runner-manage-command (quote ("manage.py" "test")))
- '(elpy-test-django-with-manage t))
+ '(elpy-test-django-with-manage t)
+ '(package-selected-packages
+   (quote
+    (company-tern xref-js2 js2-refactor py-autopep8 flycheck elpy ein auctex neotree matlab-mode markdown-mode yaml-mode magit smex material-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
