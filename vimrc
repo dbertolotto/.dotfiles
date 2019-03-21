@@ -18,6 +18,7 @@ set smartindent	" Enable smart-indent
 set smarttab	" Enable smart-tabs
 set softtabstop=2	" Number of spaces per Tab
 set mouse=a     " Enable mouse
+set laststatus=2 " Always show status bar
 
 "" Advanced
 set ruler	" Show row and column ruler information
