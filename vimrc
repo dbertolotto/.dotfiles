@@ -22,7 +22,7 @@ set mouse=a     " Enable mouse
 "" Advanced
 set ruler	" Show row and column ruler information
  
-set backupdir=~/.vim/backup	" Backup directories
+"set backupdir=~/.vim/backup	" Backup directories
  
 set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
