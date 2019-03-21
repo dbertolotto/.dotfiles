@@ -26,3 +26,29 @@ set backupdir=~/.vim/backup	" Backup directories
  
 set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
+
+" plugins (in separate file)
+so ~/.vim/plugins.vim
+
+" don't show anymore -- INSERT -- etc. since
+" we are using lightline
+set noshowmode
+
+" lightline configuration
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'component_function': {
+      \   'fileformat': 'LightlineFileformat',
+      \   'filetype': 'LightlineFiletype',
+      \   },
+      \ }
+
+" these functions make the status bar
+" visible on small screens by cropping some
+" information
+function! LightlineFileformat()
+  return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+function! LightlineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+endfunction
