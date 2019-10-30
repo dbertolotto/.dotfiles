@@ -1,13 +1,21 @@
 call plug#begin('~/.vim/plugged')
-"Plug 'airblade/vim-gitgutter'
-"Plug 'editorconfig/editorconfig-vim'
-Plug 'itchyny/lightline.vim'
-"Plug 'junegunn/fzf'
-"Plug 'junegunn/fzf.vim'
-"Plug 'mattn/emmet-vim'
-"Plug 'scrooloose/nerdtree'
+" themes
+Plug 'baskerville/bubblegum'
+Plug 'sjl/badwolf'
+" fancy statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" git support
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+" utils
+Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plug 'scrooloose/nerdtree'
+Plug 'editorconfig/editorconfig-vim'
 "Plug 'terryma/vim-multiple-cursors'
-"Plug 'tpope/vim-eunuch'
+"Plug 'mattn/emmet-vim'
 "Plug 'tpope/vim-surround'
 "Plug 'w0rp/ale'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'luochen1990/rainbow'
 call plug#end()

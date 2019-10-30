@@ -1,11 +1,11 @@
 "" General
-set number	" Show line numbers
 "set linebreak	" Break lines at word (requires Wrap lines)
 "set showbreak=+++	" Wrap-broken line prefix
 "set textwidth=100	" Line wrap (number of cols)
 set showmatch	" Highlight matching brace
 set noeb vb t_vb= "Removes bell and visual bell effects
 
+" searches
 set hlsearch	" Highlight all search results
 set smartcase	" Enable smart-case search
 set ignorecase	" Always case-insensitive
@@ -28,28 +28,39 @@ set ruler	" Show row and column ruler information
 set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 
-" plugins (in separate file)
+"" redefine leader
+let mapleader = ' '
+
+"" Show line numbers
+set number relativenumber
+map <leader>ln :set nu!<cr>
+map <leader>lr :set rnu!<cr>
+
+"" Plugins (in separate file)
 so ~/.vim/plugins.vim
 
-" don't show anymore -- INSERT -- etc. since
-" we are using lightline
-set noshowmode
+"" Colorscheme
+"colorscheme bubblegum-256-dark
+colorscheme badwolf
 
-" lightline configuration
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ 'component_function': {
-      \   'fileformat': 'LightlineFileformat',
-      \   'filetype': 'LightlineFiletype',
-      \   },
-      \ }
+"" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
+"let g:airline_theme='bubblegum'
+let g:airline_theme='badwolf'
 
-" these functions make the status bar
-" visible on small screens by cropping some
-" information
-function! LightlineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
-endfunction
-function! LightlineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
+"" fuzzy finder
+set rtp+=~/.fzf
+let $FZF_DEFAULT_COMMAND = 'find * -type f'
+map <leader>f. :FZF .<cr> 
+map <leader>fh :FZF ~<cr> 
+
+"" nerdtree
+map <leader>o :NERDTreeToggle<cr>
+
+"" rainbow parentheses
+let g:rainbow_active = 0
+map <leader>pr :RainbowToggle<cr>
+
+"" EditorConfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
