@@ -28,8 +28,11 @@ set ruler	" Show row and column ruler information
 set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 
+"" encoding
+set encoding=utf-8
+
 "" redefine leader
-let mapleader = ' '
+let mapleader = ','
 
 "" Show line numbers
 set number relativenumber
@@ -64,3 +67,7 @@ map <leader>pr :RainbowToggle<cr>
 
 "" EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
+
+"" tagbar
+map <leader>t :TagbarToggle<cr>
+
