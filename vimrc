@@ -16,7 +16,7 @@ set mouse=a         " Enable mouse
 set hlsearch        " Highlight all search results
 set smartcase       " Enable smart-case search
 set ignorecase      " Always case-insensitive
-set incsearch       " Searches for strings incrementally
+set incsearch       " IncrementalsSearch for strings
 
 "" indentation
 set autoindent      " Auto-indent new lines
@@ -25,7 +25,7 @@ set shiftwidth=2    " Number of auto-indent spaces
 set smartindent     " Enable smart-indent
 set smarttab        " Enable smart-tabs
 set softtabstop=2   " Number of spaces per Tab
-set backspace=indent,eol,start	" Backspace behaviour
+set backspace=indent,eol,start  " Backspace behaviour
 
 "" system
 set ruler           " Show row and column ruler information
@@ -54,8 +54,8 @@ let g:airline_theme='badwolf'
 "" fuzzy finder
 set rtp+=~/.fzf
 let $FZF_DEFAULT_COMMAND = 'find * -type f'
-map <leader>f. :FZF .<cr> 
-map <leader>fh :FZF ~<cr> 
+map <leader>f. :FZF .<cr>
+map <leader>fh :FZF ~<cr>
 
 "" nerdtree
 map <c-d> :NERDTreeToggle<cr>
