@@ -5,7 +5,7 @@ Plug 'airblade/vim-gitgutter'
 " utils
 Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'scrooloose/nerdtree'
-Plug 'majutsushi/tagbar' 
+Plug 'majutsushi/tagbar'
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'terryma/vim-multiple-cursors'
 "Plug 'mattn/emmet-vim'
@@ -14,12 +14,12 @@ Plug 'editorconfig/editorconfig-vim'
 "Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'kovisoft/slimv'
 Plug 'jiangmiao/auto-pairs'
-Plug 'luochen1990/rainbow'
+" Plug 'luochen1990/rainbow'
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " autocompletion engine
-Plug 'valloric/youcompleteme'
+Plug 'valloric/youcompleteme', { 'do': './install.py' }
 " linting & fixing
 Plug 'dense-analysis/ale'
 " fancy statusline

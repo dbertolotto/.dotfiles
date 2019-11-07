@@ -36,6 +36,18 @@ set undolevels=1000 " Number of undo levels
 "" encoding
 set encoding=utf-8
 
+""" dont use arrowkeys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> :bp<CR>
+noremap <Right> :bn<CR>
+
+"" really, just dont
+inoremap <Up>    <NOP>
+inoremap <Down>  <NOP>
+inoremap <Left>  <NOP>
+inoremap <Right> <NOP>
+
 "" line numbers
 set number
 map <leader>ln :set nu!<cr>
@@ -59,21 +71,27 @@ map <leader>fh :FZF ~<cr>
 
 "" nerdtree
 map <c-d> :NERDTreeToggle<cr>
+" close NERDTree after a file is opened
+let g:NERDTreeQuitOnOpen = 1
 
 "" tagbar (outline)
 map <c-o> :TagbarToggle<cr>
-
-"" rainbow parentheses
-let g:rainbow_active = 0
-map <leader>pr :RainbowToggle<cr>
 
 "" EditorConfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 
 "" YCM
+"let g:ycm_add_preview_to_completeopt = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_select_completion = ['<tab>']
 let g:ycm_key_list_previous_completion = ['<s-tab>']
-let g:ycm_key_list_stop_completion = ['<esc>']
+let g:ycm_key_list_stop_completion = ['<c-w>']
+
+" YouCompleteMeMappings
+"nnoremap ,gt :YcmCompleter GetType<CR>
+"nnoremap ,dl :YcmCompleter GoToDeclaration<CR>
+"nnoremap ,df :YcmCompleter GoToDefinition<CR>
+"nnoremap ,#  :YcmCompleter GoToReferences<CR>
 
 "" Trigger configuration.
 "" Do not use <tab> if you use YouCompleteMe.
@@ -81,8 +99,19 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
-"" ale
+"" ALE
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_delay = 1000
+
+let g:ale_sign_error = 'E '
+let g:ale_sign_warning = 'W '
+
+"let g:ale_set_balloons = 0
+
 let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'python' : ['autopep8', 'yapf'],
       \ 'go' : ['gofmt', 'goimports']
       \ }
+
+
