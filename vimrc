@@ -54,6 +54,7 @@ map <leader>ln :set nu!<cr>
 map <leader>lr :set rnu!<cr>
 
 "" color scheme
+set t_Co=256
 "colorscheme bubblegum-256-dark
 colorscheme badwolf
 
@@ -103,8 +104,13 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_delay = 1000
 
-let g:ale_sign_error = 'E '
-let g:ale_sign_warning = 'W '
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
+let g:ale_sign_info = 'I'
+
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+highlight ALEInfoSign ctermbg=NONE ctermfg=green
 
 "let g:ale_set_balloons = 0
 
@@ -114,4 +120,5 @@ let g:ale_fixers = {
       \ 'go' : ['gofmt', 'goimports']
       \ }
 
-
+let g:slimv_swank_cmd =
+      \ '! tmux new-window "ecl -norc -load ~/.vim/plugged/slimv/slime/start-swank.lisp" &'
