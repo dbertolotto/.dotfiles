@@ -4,4 +4,5 @@ linker () {
 }
 linker .bashrc
 linker .bash_profile
+linker .gitconfig
 linker .tmux.conf

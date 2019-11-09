@@ -1,0 +1,28 @@
+[user]
+  email = davide.bertolotto@gmail.com
+  name = Davide Bertolotto
+
+[core]
+  editor = vim
+
+[alias]
+  co = checkout
+  cobr = checkout -b
+  cm = commit
+  st = status
+  br = branch -av
+  brdel = branch -D
+  pup = push --set-upstream
+  fall = fetch --all
+
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+  # Show all configured aliases
+  aliases = !git config --list | grep 'alias\\.' | grep -v aliases | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ \t => \\2/' | sort
+
+[color]
+  ui = auto
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
