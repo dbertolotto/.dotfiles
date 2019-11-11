@@ -1,8 +1,11 @@
+# see https://git-scm.com/docs/git-config for all the config options
+
 [user]
   email = davide.bertolotto@gmail.com
   name = Davide Bertolotto
 
 [core]
+  eol = native
   editor = vim
 
 [alias]
@@ -26,3 +29,4 @@
   diff = auto
   interactive = auto
   status = auto
+  

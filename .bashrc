@@ -1,7 +1,9 @@
 # aliases
 alias ls='ls -h --color=auto'
-alias la='ls -a'
+alias la='ls -A'
 alias ll='la -l'
+alias df='df -h'
+alias du='du -h'
 
 # color for the prompt
 c1='\[\e[37;40m\]' # white on black
