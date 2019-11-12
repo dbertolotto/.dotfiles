@@ -5,6 +5,8 @@ alias ll='la -l'
 alias df='df -h'
 alias du='du -h'
 
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+
 # color for the prompt
 c1='\[\e[37;40m\]' # white on black
 c2='\[\e[32;40m\]' # green on black
