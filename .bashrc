@@ -1,5 +1,8 @@
+# vi-style command line editing
+set -o vi
+
 # aliases
-source ~/.dotfiles/.sh_alias                
+source ~/.dotfiles/.sh_alias
 
 # functions
 source ~/.dotfiles/.sh_func

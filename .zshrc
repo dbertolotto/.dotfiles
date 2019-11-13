@@ -33,10 +33,13 @@ setopt CORRECT_ALL
 # enable completion
 autoload -Uz compinit && compinit
 
+# vi-style editing of the command line
+bindkey -v
+
 # aliases
 source ~/.dotfiles/.sh_alias
 
-# functions                   
+# functions
 source ~/.dotfiles/.sh_func
 
 # prompt
