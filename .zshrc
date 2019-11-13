@@ -33,15 +33,33 @@ setopt CORRECT_ALL
 # enable completion
 autoload -Uz compinit && compinit
 
-# vi-style editing of the command line
-bindkey -v
-
 # aliases
 source ~/.dotfiles/.sh_alias
 
 # functions
 source ~/.dotfiles/.sh_func
 
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=1
+
+# vi-style editing of the command line
+bindkey -v
+
+# emacs-style editing of the command line
+#bindkey -e
+
+# Updates editor information when the keymap changes.
+function zle-line-init zle-keymap-select {
+  zle reset-prompt
+  zle -R
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+function vi_mode_prompt_info {
+  echo "${${KEYMAP/vicmd/(c) }/(main|viins)/(i) }"
+}
+
 # prompt
 setopt PROMPT_SUBST
-export PS1='%F{green}%n%F{white}@%F{yellow}%M%F{white}:%F{red}%~%F{cyan}$(parse_git_branch)%F{white}\$ '
+export PS1='%F{magenta}$(vi_mode_prompt_info)%F{green}%n%F{white}@%F{yellow}%M%F{white}:%F{red}%~%F{cyan}$(parse_git_branch)%F{white}\$ '
+
