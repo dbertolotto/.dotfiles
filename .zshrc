@@ -55,11 +55,13 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+# fix initial prompt display
+KEYMAP='viins'
+
+# prompt
 function vi_mode_prompt_info {
   echo "${${KEYMAP/vicmd/(c) }/(main|viins)/(i) }"
 }
-
-# prompt
 setopt PROMPT_SUBST
 export PS1='%F{magenta}$(vi_mode_prompt_info)%F{green}%n%F{white}@%F{yellow}%M%F{white}:%F{red}%~%F{cyan}$(parse_git_branch)%F{white}\$ '
-
