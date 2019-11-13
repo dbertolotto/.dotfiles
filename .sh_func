@@ -6,3 +6,11 @@
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+
+# function to convert git repo from http to ssh
+git_ssh() {
+  git remote -v | head -1 | sed -e 's|https://github.com/|git@github.com:|' | awk '{print $1 " " $2}' | xargs git remote set-url
+  echo "new git ssh remote status"
+  git remote -v
+}
+
