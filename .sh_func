@@ -4,7 +4,7 @@
 
 # function to show git branch
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  git rev-parse --abbrev-ref HEAD | sed -e 's|\(.*\)| (\1)|'
 }
 
 # function to convert git repo from http to ssh
