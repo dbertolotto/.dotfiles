@@ -1,6 +1,12 @@
 #!/usr/bin/bash
 
-ssh-keygen -t rsa -b 4096 -C "davide.bertolotto@gmail.com" -f ~/.ssh/id_rsa
+# key file location
+keypath=~/.ssh/id_rsa
+
+# generate key
+ssh-keygen -t rsa -b 4096 -C "davide.bertolotto@gmail.com" $keypath
+# start the agent and add the key
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub
+ssh-add $keypath
+# show public key
+cat $keypath.pub
