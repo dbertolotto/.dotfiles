@@ -17,7 +17,7 @@ function linker() {
 linker .bashrc
 linker .bash_profile
 linker .gitconfig
-linker .initrc
+linker .inputrc
 linker .termux
 linker .tmux.conf
 linker .zshrc
