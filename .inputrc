@@ -1,3 +1,7 @@
+# remove bell
+set bell-style none
+
+# editing mode
 set editing-mode vi
 set show-mode-in-prompt on
 set vi-ins-mode-string "\e[35m(i) "

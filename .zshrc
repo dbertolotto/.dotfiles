@@ -1,3 +1,6 @@
+# remove bell
+unsetopt BEEP
+
 # case insensitive globbing
 #setopt NO_CASE_GLOB
 # bash-style globbing
