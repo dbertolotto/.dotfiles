@@ -1,3 +1,7 @@
 backup
-*.swp
 .termux/shell
+
+# vim
+plugged/*
+.netrwhist
+*.swp
