@@ -16,6 +16,10 @@ Plug 'editorconfig/editorconfig-vim'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'jiangmiao/auto-pairs'
 
+" text editing
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
+
 " slime for vim
 Plug 'kovisoft/slimv'
 

@@ -27,6 +27,14 @@ set smarttab        " Enable smart-tabs
 set softtabstop=2   " Number of spaces per Tab
 set backspace=indent,eol,start  " Backspace behaviour
 
+"" copy/paste to/from system
+"vnoremap <C-y> "*y
+"vnoremap <C-c> "*c
+"vnoremap <C-p> "*p
+"vnoremap <C-Y> "+y
+"vnoremap <C-C> "+c
+"vnoremap <C-P> "+p
+
 "" system
 set ruler           " Show row and column ruler information
 set laststatus=2    " Always show status bar
@@ -122,3 +130,5 @@ let g:ale_fixers = {
 
 let g:slimv_swank_cmd =
       \ '! tmux new-window "ecl -norc -load ~/.vim/plugged/slimv/slime/start-swank.lisp" &'
+
+let g:slimv_disable_clojure = 1
