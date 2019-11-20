@@ -2,6 +2,11 @@ backup
 .termux/shell
 
 # vim
-plugged/*
+.vim/plugged/*
 .netrwhist
 *.swp
+
+# emacs
+.emacs.d
+!.emacs.d/init.el
+
