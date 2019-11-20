@@ -3,7 +3,7 @@
 # common aliases for bash and zsh
 
 # aliases
-alias ls='ls -h --color=auto'                         
+alias ls='ls -h --color=auto'
 alias la='ls -A'
 alias ll='la -l'
 alias df='df -h'
