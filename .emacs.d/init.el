@@ -24,7 +24,8 @@
   (package-refresh-contents))
 
 (defvar my-packages
-  '(material-theme ; nice color theme
+  '(badwolf-theme ; porting of the vim theme
+    material-theme ; nice color theme
     smex ; ;M-x enhancer
     magit ; git support
     yaml-mode ; yaml support
@@ -109,7 +110,8 @@
 ;; --------------------------------------
 
 ;; load custom theme
-(load-theme 'material t)
+(load-theme 'badwolf t)
+;;(load-theme 'material t)
 
 ;; hide the startup message
 (setq inhibit-startup-message t)
@@ -127,8 +129,10 @@
 (tool-bar-mode -1)
 
 ;; no scroll bars
-(scroll-bar-mode -1)
-(horizontal-scroll-bar-mode -1)
+(if (boundp 'scroll-bar-mode)
+    (prog
+     (scroll-bar-mode -1)
+     (horizontal-scroll-bar-mode -1)))
 
 ;; enable line numbers globally
 (global-linum-mode 1)
