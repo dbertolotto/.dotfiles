@@ -18,6 +18,8 @@
   pup = push --set-upstream
   fall = fetch --all
   diffs = diff --staged
+  unstage = git restore --staged
+  unst = unstaged
 
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
