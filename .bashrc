@@ -7,6 +7,14 @@ source ~/.dotfiles/.sh_func
 # environment
 source ~/.dotfiles/.sh_env
 
+# activate bash completion
+# termux
+acfile="/data/data/com.termux/files/usr/share/bash-completion/bash_completion"
+[ -f $acfile ] && . $acfile
+# debian
+acfile="/etc/bash_completion"
+[ -f $acfile ] && . $acfile
+
 # color for the prompt
 c1='\[\e[37;40m\]' # light gray on black
 c2='\[\e[32;40m\]' # green on black
