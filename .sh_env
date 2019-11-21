@@ -1,0 +1,4 @@
+# vi: ft=bash
+
+# fzf customization
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --inline-info"
