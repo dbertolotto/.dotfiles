@@ -42,6 +42,9 @@ source ~/.dotfiles/.sh_alias
 # functions
 source ~/.dotfiles/.sh_func
 
+# activate fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 
