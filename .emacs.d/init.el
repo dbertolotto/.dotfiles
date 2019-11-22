@@ -299,6 +299,9 @@
 ;; Java classes (e.g. JavaClassName)
 (add-hook 'clojure-mode-hook 'subword-mode)
 
+;; remove cider repl start message
+(setq cider-repl-display-help-banner nil)
+
 ;; provides minibuffer documentation for the code you're typing into the repl
 (add-hook 'cider-mode-hook 'eldoc-mode)
 
