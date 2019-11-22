@@ -7,6 +7,9 @@ source ~/.dotfiles/.sh_func
 # environment
 source ~/.dotfiles/.sh_env
 
+# directory colors
+eval "$(dircolors ~/.dotfiles/.dircolors)"
+
 # activate bash completion
 # termux
 acfile="/data/data/com.termux/files/usr/share/bash-completion/bash_completion"
