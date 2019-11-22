@@ -21,8 +21,6 @@ linker .gitconfig
 linker .inputrc
 linker .termux
 linker .tmux.conf
-linker .zshrc
-linker .fzf.zsh
 linker .vim
 linker .emacs.d
 
