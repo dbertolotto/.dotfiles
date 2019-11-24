@@ -17,7 +17,7 @@
 (require 'package)
 
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
 
 (package-initialize)
 (when (not package-archive-contents)
@@ -32,6 +32,7 @@
     markdown-mode ; markdown support
     matlab-mode ; matlab support
     neotree ; tree browser
+    editorconfig ; editorconfig support
     ;;projectile ; projects management
     auctex ; latex support
     ;; python support
@@ -53,8 +54,8 @@
     ))
 
 (mapc #'(lambda (package)
-	  (unless (package-installed-p package)
-	    (package-install package)))
+          (unless (package-installed-p package)
+            (package-install package)))
       my-packages)
 
 
@@ -131,8 +132,8 @@
 ;; no scroll bars
 (if (boundp 'scroll-bar-mode)
     (progn
-     (scroll-bar-mode -1)
-     (horizontal-scroll-bar-mode -1)))
+      (scroll-bar-mode -1)
+      (horizontal-scroll-bar-mode -1)))
 
 ;; enable line numbers globally
 (global-linum-mode 1)
@@ -153,6 +154,9 @@
 
 ;; highlight selected line
 (global-hl-line-mode t)
+
+;; enable mouse support
+(xterm-mouse-mode 1)
 
 ;; mouse yanks at point, to at cursor
 (setq mouse-yank-at-point t)
@@ -197,6 +201,12 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain
       ediff-split-window-function 'split-window-horizontally
       ediff-forward-word-function 'forward-char)
+
+
+;; editorconfig
+;; --------------------------------------
+
+(editorconfig-mode 1)
 
 
 ;; SMEX
@@ -260,9 +270,9 @@
 
 (add-to-list 'company-backends 'company-tern)
 (add-hook 'js2-mode-hook
-	  (lambda ()
-	    (tern-mode)
-	    (company-mode)))
+          (lambda ()
+            (tern-mode)
+            (company-mode)))
 
 ;; Disable completion keybindings, as we use xref-js2 instead
 (define-key tern-mode-keymap (kbd "M-.") nil)
