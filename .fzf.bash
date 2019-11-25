@@ -10,4 +10,5 @@ fi
 
 # Key bindings
 # ------------
-source ~/.fzf/shell/key-bindings.bash
+acfile="~/.fzf/shell/key-bindings.bas"
+[[ -F $acfile ]] source $acfile
