@@ -1,5 +1,6 @@
 root = true
 
+# generic rules for all files
 [*]
 charset = utf-8
 indent_style = space
@@ -8,15 +9,12 @@ trim_trailing_whitespace = true
 end_of_line = lf
 insert_final_newline = true
 
-[*.sh]
-indent_style = tab
-indent_size = 4
-
+# makefiles need tabs!
 [Makefile]
 indent_style = tab
 indent_size = 4
 
+# exclude lisp from indentation rules
 [*.{lisp,clj,el,scm}]
-indent_style = space
 indent_size = none
 tab_width = none
