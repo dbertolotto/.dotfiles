@@ -11,4 +11,4 @@ fi
 # Key bindings
 # ------------
 acfile="~/.fzf/shell/key-bindings.bas"
-[[ -F $acfile ]] source $acfile
+[[ -f $acfile ]] && source $acfile
