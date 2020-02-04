@@ -15,3 +15,5 @@ $apti clojure leiningen
 $apti vim vim-python-jedi emacs
 # go
 $apti golang
+# pil
+$apti picolisp
