@@ -13,3 +13,5 @@ $apti default-jdk default-jre
 $apti clojure leiningen
 # vim & emacs
 $apti vim vim-python-jedi emacs
+# go
+$apti golang
