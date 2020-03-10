@@ -1,6 +1,6 @@
 # install emulation station
 apti='apt install -y --no-install-recommends'
-build_dir='~/.dotfiles/tmp/EmulationStation'
+build_dir="~/.dotfiles/tmp/EmulationStation"
 version='master'
 
 apt update -y && apt upgrade -y

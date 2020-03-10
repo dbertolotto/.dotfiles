@@ -1,6 +1,6 @@
 # install emulation station
 apti='apt install -y --no-install-recommends'
-build_dir='~/.dotfiles/tmp/mame'
+build_dir="~/.dotfiles/tmp/mame"
 version='mame0219'
 multi=5
 
