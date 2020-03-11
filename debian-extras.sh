@@ -11,9 +11,11 @@ $apti build-essential cmake python3-dev
 $apti default-jdk default-jre
 # clojure
 $apti clojure leiningen
-# vim & emacs
-$apti vim vim-python-jedi emacs
+# vim
+$apti vim vim-python-jedi
+# emacs
+$apti emacs
 # go
 $apti golang
 # pil
-$apti picolisp
+$apti picolisp w3m
