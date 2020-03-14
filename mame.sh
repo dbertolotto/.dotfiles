@@ -2,7 +2,7 @@
 apti='apt install -y --no-install-recommends'
 build_dir="~/.dotfiles/tmp/mame"
 version='mame0219'
-multi=5
+multi=4
 
 apt update -y && apt upgrade -y
 
@@ -13,6 +13,6 @@ git clone https://github.com/mamedev/mame.git $build_dir
 cd $build_dir
 git checkout $version
 # build
-make TOOLS=1 REGENIE=1 -j$multi
+make TOOLS=1 REGENIE=1 NOWERROR=1 -j$multi
 cd ~/.dotfiles
 
