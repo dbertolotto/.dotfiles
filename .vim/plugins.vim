@@ -14,7 +14,7 @@ Plug 'editorconfig/editorconfig-vim'
 "Plug 'tpope/vim-surround'
 "Plug 'scrooloose/nerdcommenter'
 "Plug 'nathanaelkane/vim-indent-guides'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 
 " text editing
 Plug 'junegunn/goyo.vim'
