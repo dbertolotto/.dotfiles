@@ -5,6 +5,8 @@ backup
 .vim/plugged/*
 .netrwhist
 *.swp
+*.un~
+*~
 
 # emacs
 .emacs.d

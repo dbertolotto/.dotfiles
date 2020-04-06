@@ -1,5 +1,8 @@
 "" Plugins (in separate file)
-so ~/.vim/plugins.vim
+source ~/.vim/plugins.vim
+
+"" custom suntax highlighting
+source ~/.vim/syntax/picolisp.vim
 
 "" redefine leader
 let mapleader = ','
@@ -39,6 +42,12 @@ set backspace=indent,eol,start  " Backspace behaviour
 set ruler           " Show row and column ruler information
 set laststatus=2    " Always show status bar
 set noeb vb t_vb=   " Removes bell and visual bell effects
+
+"" files
+set autochdir       " Change dir according to open file
+set nobackup        " do not create backup files
+set swapfile        " create swap files to recover from crashes
+set undofile        " Save undo file between sessions
 set undolevels=1000 " Number of undo levels
 
 "" encoding
@@ -64,7 +73,7 @@ map <leader>lr :set rnu!<cr>
 "" color scheme
 set t_Co=256
 "colorscheme bubblegum-256-dark
-colorscheme badwolf
+silent! colorscheme badwolf
 
 "" airline
 let g:airline#extensions#tabline#enabled = 1
