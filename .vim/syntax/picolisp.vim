@@ -1,6 +1,6 @@
 autocmd FileType picolisp call s:PicoLisp()
 	function! s:PicoLisp()
-		setl iskeyword+=?,$,+,*,/,%,=,>,<,!
+		setl iskeyword+=?,$,+,*,/,%,=,>,<,!,-
 
 		syn match PicoLispComment /#.*$/
 		syn region PicoLispCommentRegion start="#{" end="}#"
