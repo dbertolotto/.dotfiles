@@ -2,7 +2,7 @@
 source ~/.vim/plugins.vim
 
 "" custom suntax highlighting
-source ~/.vim/syntax/picolisp.vim
+"source ~/.vim/syntax/picolisp.vim
 
 "" redefine leader
 let mapleader = ','
@@ -56,8 +56,8 @@ set encoding=utf-8
 """ dont use arrowkeys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
-noremap <Left> :bp<CR>
-noremap <Right> :bn<CR>
+noremap <Left> :bp!<CR>
+noremap <Right> :bn!<CR>
 
 "" really, just dont
 inoremap <Up>    <NOP>
@@ -96,7 +96,10 @@ let g:NERDTreeQuitOnOpen = 1
 map <c-o> :TagbarToggle<cr>
 
 "" EditorConfig
-let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
+let g:EditorConfig_exclude_patterns = [
+      \ 'fugitive://.\*',
+      \ 'scp://.\*',
+      \ ]
 
 "" YCM
 "let g:ycm_add_preview_to_completeopt = 1
@@ -137,7 +140,27 @@ let g:ale_fixers = {
       \ 'go' : ['gofmt', 'goimports']
       \ }
 
+let g:ale_linters = {
+	\ 'go': ['gopls'],
+	\ }
+
 let g:slimv_swank_cmd =
       \ '! tmux new-window "ecl -norc -load ~/.vim/plugged/slimv/slime/start-swank.lisp" &'
 
 let g:slimv_disable_clojure = 1
+
+" vim-ls
+let g:lsc_server_commands = {
+      \ 'python': {
+      \   'command': 'pyls',
+      \   'log_level': -1,
+      \   'suppress_stderr': v:true,
+      \ },
+      \  'go': {
+      \    'command': "gopls serve",
+      \    'log_level': -1,
+      \    'suppress_stderr': v:true,
+      \  },
+      \ }
+let g:lsc_enable_autocomplete = v:true
+let g:lsc_auto_map = v:true

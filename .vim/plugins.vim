@@ -34,7 +34,11 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " autocompletion engine
-Plug 'valloric/youcompleteme', { 'do': '~/.vim/ycm-install.sh' }
+"Plug 'valloric/youcompleteme', { 'do': '~/.vim/ycm-install.sh' }
+
+" completion/lsp
+Plug 'natebosch/vim-lsc'
+"Plug 'ajh17/VimCompletesMe'
 
 " linting & fixing
 Plug 'dense-analysis/ale'
