@@ -2,7 +2,7 @@
 source ~/.vim/plugins.vim
 
 "" custom suntax highlighting
-"source ~/.vim/syntax/picolisp.vim
+source ~/.vim/syntax/picolisp.vim
 
 "" redefine leader
 let mapleader = ','
