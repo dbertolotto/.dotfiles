@@ -103,9 +103,9 @@ let g:EditorConfig_exclude_patterns = [
 "" YCM
 "let g:ycm_add_preview_to_completeopt = 1
 "let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_key_list_select_completion = ['<tab>']
-let g:ycm_key_list_previous_completion = ['<s-tab>']
-let g:ycm_key_list_stop_completion = ['<c-w>']
+"let g:ycm_key_list_select_completion = ['<tab>']
+"let g:ycm_key_list_previous_completion = ['<s-tab>']
+"let g:ycm_key_list_stop_completion = ['<c-w>']
 
 " YouCompleteMeMappings
 "nnoremap ,gt :YcmCompleter GetType<CR>
@@ -120,46 +120,82 @@ let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 "" ALE
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_delay = 1000
+"let g:ale_lint_on_text_changed = 'always'
+"let g:ale_lint_delay = 1000
+"
+"let g:ale_sign_error = 'E'
+"let g:ale_sign_warning = 'W'
+"let g:ale_sign_info = 'I'
+"
+"highlight ALEErrorSign ctermbg=NONE ctermfg=red
+"highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+"highlight ALEInfoSign ctermbg=NONE ctermfg=green
+"
+"let g:ale_fixers = {
+"      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+"      \ 'python' : ['autopep8', 'yapf'],
+"      \ 'go' : ['gofmt', 'goimports']
+"      \ }
+"
+"let g:ale_linters = {
+"	\ 'go': ['gopls'],
+"	\ }
 
-let g:ale_sign_error = 'E'
-let g:ale_sign_warning = 'W'
-let g:ale_sign_info = 'I'
-
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-highlight ALEInfoSign ctermbg=NONE ctermfg=green
-
-"let g:ale_set_balloons = 0
-
-let g:ale_fixers = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'python' : ['autopep8', 'yapf'],
-      \ 'go' : ['gofmt', 'goimports']
-      \ }
-
-let g:ale_linters = {
-	\ 'go': ['gopls'],
-	\ }
-
-let g:slimv_swank_cmd =
-      \ '! tmux new-window "ecl -norc -load ~/.vim/plugged/slimv/slime/start-swank.lisp" &'
-
-let g:slimv_disable_clojure = 1
+"let g:slimv_swank_cmd =
+"      \ '! tmux new-window "ecl -norc -load ~/.vim/plugged/slimv/slime/start-swank.lisp" &'
+"
+"let g:slimv_disable_clojure = 1
 
 " vim-ls
-let g:lsc_server_commands = {
-      \ 'python': {
-      \   'command': 'pyls',
-      \   'log_level': -1,
-      \   'suppress_stderr': v:true,
-      \ },
-      \  'go': {
-      \    'command': "gopls serve",
-      \    'log_level': -1,
-      \    'suppress_stderr': v:true,
-      \  },
-      \ }
-let g:lsc_enable_autocomplete = v:true
-let g:lsc_auto_map = v:true
+"let g:lsc_server_commands = {
+"      \ 'python': {
+"      \   'command': 'pyls',
+"      \   'log_level': -1,
+"      \   'suppress_stderr': v:true,
+"      \ },
+"      \  'go': {
+"      \    'command': "gopls serve",
+"      \    'log_level': -1,
+"      \    'suppress_stderr': v:true,
+"      \  },
+"      \ }
+"let g:lsc_enable_autocomplete = v:true
+"let g:lsc_auto_map = v:true
+
+"" LSP
+
+" folding
+set foldmethod=expr
+      \ foldexpr=lsp#ui#vim#folding#foldexpr()
+      \ foldtext=lsp#ui#vim#folding#foldtext()
+let g:lsp_fold_enabled = 1
+
+" diagnostics
+let g:lsp_diagnostics_enabled = 1
+
+" signs
+let g:lsp_signs_enabled = 1
+let g:lsp_signs_error = {'text': 'E'}
+let g:lsp_signs_warning = {'text': 'W'}
+let g:lsp_signs_information = {'text': 'I'}
+let g:lsp_signs_hint = {'text': 'H'}
+
+" echo under cursor when in normal mode
+let g:lsp_diagnostics_echo_cursor = 1
+
+" highlights
+let g:lsp_highlights_enabled = 1
+let g:lsp_textprop_enabled = 1
+
+" virtual text
+let g:lsp_virtual_text_enabled = 1
+
+" highlight references
+let g:lsp_highlight_references_enabled = 1
+
+" debugging for lsp
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
+
+" debugging for asyncomplete
+"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
