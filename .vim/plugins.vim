@@ -32,6 +32,8 @@ Plug 'reedes/vim-pencil'
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'thomasfaingnaert/vim-lsp-snippets'
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
 " autocompletion engine
 "Plug 'valloric/youcompleteme', { 'do': '~/.vim/ycm-install.sh' }
@@ -43,6 +45,7 @@ Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " linting & fixing
 "Plug 'dense-analysis/ale'
