@@ -20,9 +20,6 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
 
-" slime for vim
-Plug 'kovisoft/slimv'
-
 " clojure
 Plug 'tpope/vim-salve'
 Plug 'tpope/vim-projectionist'
@@ -46,6 +43,7 @@ Plug 'dense-analysis/ale'
 " fancy statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 
 " themes
 Plug 'baskerville/bubblegum'
