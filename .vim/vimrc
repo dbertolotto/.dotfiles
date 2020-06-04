@@ -1,3 +1,4 @@
+let g:ale_completion_enabled = 1
 "" Plugins (in separate file)
 source ~/.vim/plugins.vim
 
@@ -20,6 +21,7 @@ set hlsearch        " Highlight all search results
 set smartcase       " Enable smart-case search
 set ignorecase      " Always case-insensitive
 set incsearch       " IncrementalsSearch for strings
+nnoremap <leader><space> :nohlsearch<cr>
 
 "" indentation
 set autoindent      " Auto-indent new lines
@@ -87,12 +89,12 @@ map <leader>f. :FZF .<cr>
 map <leader>fh :FZF ~<cr>
 
 "" nerdtree
-map <c-d> :NERDTreeToggle<cr>
+map <c-k>d :NERDTreeToggle<cr>
 " close NERDTree after a file is opened
 let g:NERDTreeQuitOnOpen = 1
 
 "" tagbar (outline)
-map <c-o> :TagbarToggle<cr>
+map <c-k>t :TagbarToggle<cr>
 
 "" EditorConfig
 let g:EditorConfig_exclude_patterns = [
@@ -115,55 +117,11 @@ let g:EditorConfig_exclude_patterns = [
 
 "" Trigger configuration.
 "" Do not use <tab> if you use YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-s>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-"" ALE
-"let g:ale_lint_on_text_changed = 'always'
-"let g:ale_lint_delay = 1000
-"
-"let g:ale_sign_error = 'E'
-"let g:ale_sign_warning = 'W'
-"let g:ale_sign_info = 'I'
-"
-"highlight ALEErrorSign ctermbg=NONE ctermfg=red
-"highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-"highlight ALEInfoSign ctermbg=NONE ctermfg=green
-"
-"let g:ale_fixers = {
-"      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-"      \ 'python' : ['autopep8', 'yapf'],
-"      \ 'go' : ['gofmt', 'goimports']
-"      \ }
-"
-"let g:ale_linters = {
-"	\ 'go': ['gopls'],
-"	\ }
-
-"let g:slimv_swank_cmd =
-"      \ '! tmux new-window "ecl -norc -load ~/.vim/plugged/slimv/slime/start-swank.lisp" &'
-"
-"let g:slimv_disable_clojure = 1
-
-" vim-ls
-"let g:lsc_server_commands = {
-"      \ 'python': {
-"      \   'command': 'pyls',
-"      \   'log_level': -1,
-"      \   'suppress_stderr': v:true,
-"      \ },
-"      \  'go': {
-"      \    'command': "gopls serve",
-"      \    'log_level': -1,
-"      \    'suppress_stderr': v:true,
-"      \  },
-"      \ }
-"let g:lsc_enable_autocomplete = v:true
-"let g:lsc_auto_map = v:true
+"let g:UltiSnipsExpandTrigger="<c-s>"
+"let g:UltiSnipsJumpForwardTrigger="<c-f>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 "" LSP
-
 
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
@@ -214,3 +172,57 @@ let g:lsp_highlight_references_enabled = 1
 
 " debugging for asyncomplete
 "let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+
+"" ALE
+
+set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 200
+let g:ale_completion_max_suggestions = 10
+
+inoremap <silent><expr> <tab>
+      \ pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr> <s-tab>
+      \ pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <silent><expr> <cr>
+      \ pumvisible() ? "\<c-y>" : "\<cr>"
+inoremap <silent><expr> <esc>
+      \ pumvisible() ? "\<c-e>" : "\<esc>"
+
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_delay = 500
+
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
+let g:ale_sign_info = 'I'
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+highlight ALEInfoSign ctermbg=NONE ctermfg=green
+
+nnoremap <leader>ad :ALEGoToDefinition<cr>
+nnoremap <leader>at :ALEGoToTypeDefinition<cr>
+nnoremap <leader>ar :ALEFindReferences -relative<cr>
+nnoremap <leader>ah :ALEHover<cr>
+nnoremap <leader>an :ALENext<cr>
+nnoremap <leader>ap :ALEPrevious<cr>
+
+"let g:ale_set_balloons = 0
+
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'python' : ['autopep8', 'yapf'],
+      \ 'go' : ['gofmt', 'goimports']
+      \ }
+"let g:ale_fix_on_save = 1
+
+let g:ale_linters = {
+	\ 'python': ['pyls'],
+	\ 'go': ['gopls'],
+	\ }
+
+let g:airline#extensions#ale#enabled = 1
