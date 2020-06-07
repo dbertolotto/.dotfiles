@@ -7,6 +7,7 @@
 [core]
   eol = native
   editor = vim
+  excludesfile = ~/.dotfiles/.gitignore_base
 
 [alias]
   co = checkout
@@ -15,7 +16,7 @@
   st = status
   br = branch -av
   brdel = branch -D
-  pup = push --set-upstream
+  psu = push --set-upstream
   fall = fetch --all
   diffs = diff --staged
   unstage = restore --staged
@@ -32,4 +33,13 @@
   diff = auto
   interactive = auto
   status = auto
+
+[instaweb]
+  # httpd = lighttpd
+
+[pull]
+  rebase = false
+
+[web]
+  browser = w3m
 

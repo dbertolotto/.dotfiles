@@ -4,9 +4,6 @@ backup
 # vim
 .vim/plugged/*
 .netrwhist
-*.swp
-*.un~
-*~
 
 # emacs
 .emacs.d
