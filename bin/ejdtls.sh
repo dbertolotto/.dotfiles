@@ -7,23 +7,25 @@ jdtpath=~/.ejdtls
 config=config_linux
 
 # Name of the launcher file
-launcher=org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar
-
-# Directory where server data will be stored
-datapath=~/.javalsp
+launcher=`ls $jdtpath/plugins/org.eclipse.equinox.launcher_*.jar`
 
 java \
-  -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044 \
   -Declipse.application=org.eclipse.jdt.ls.core.id1 \
   -Dosgi.bundles.defaultStartLevel=4 \
   -Declipse.product=org.eclipse.jdt.ls.core.product \
   -Dlog.level=ALL \
   -noverify \
   -Xmx1G \
-  -jar $jdtpath/plugins/$launcher \
+  -jar $launcher \
   -configuration $jdtpath/$config \
-  -data $datapath \
+  -data $jdtpath/data \
   --add-modules=ALL-SYSTEM \
   --add-opens java.base/java.util=ALL-UNNAMED \
   --add-opens java.base/java.lang=ALL-UNNAMED
 
+# this may be needed for remote debugging the server
+#-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044 \
+
+# this may be needed for lombok
+#  -javaagent:$jdtpath/lombok.jar \
+#  -Xbootclasspath/a:$jdtpath/lombok.jar \

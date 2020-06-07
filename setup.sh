@@ -23,6 +23,7 @@ linker .termux
 linker .tmux.conf
 linker .vim
 linker .emacs.d
+linker bin
 
 echo "Done!"
 echo "Backed up files are in $bu"

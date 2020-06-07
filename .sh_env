@@ -1,4 +1,7 @@
 # vi: ft=bash
 
+# path extension
+export PATH=$PATH:~/bin
+
 # fzf customization
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40% --inline-info"
