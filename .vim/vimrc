@@ -1,4 +1,3 @@
-let g:ale_completion_enabled = 1
 "" Plugins (in separate file)
 source ~/.vim/plugins.vim
 
@@ -123,28 +122,28 @@ let g:EditorConfig_exclude_patterns = [
 
 "" LSP
 
-function! s:on_lsp_buffer_enabled() abort
-  setlocal omnifunc=lsp#complete
-  setlocal signcolumn=yes
-  "nmap <buffer> gd <plug>(lsp-definition)
-  "nmap <buffer> <f2> <plug>(lsp-rename)
-  " refer to doc to add more commands
-endfunction
-
-augroup lsp_install
-  au!
-  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
-" folding
-set foldmethod=expr
-      \ foldexpr=lsp#ui#vim#folding#foldexpr()
-      \ foldtext=lsp#ui#vim#folding#foldtext()
+"function! s:on_lsp_buffer_enabled() abort
+"  setlocal omnifunc=lsp#complete
+"  setlocal signcolumn=yes
+"  "nmap <buffer> gd <plug>(lsp-definition)
+"  "nmap <buffer> <f2> <plug>(lsp-rename)
+"  " refer to doc to add more commands
+"endfunction
+"
+"augroup lsp_install
+"  au!
+"  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+"  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+"augroup END
+"
+"" folding
+"set foldmethod=expr
+"      \ foldexpr=lsp#ui#vim#folding#foldexpr()
+"      \ foldtext=lsp#ui#vim#folding#foldtext()
 let g:lsp_fold_enabled = 0
 
 " diagnostics
-let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_enabled = 0
 
 " signs
 let g:lsp_signs_enabled = 1
@@ -175,19 +174,19 @@ let g:lsp_highlight_references_enabled = 1
 
 "" ALE
 
-set omnifunc=ale#completion#OmniFunc
+"set omnifunc=ale#completion#OmniFunc
 let g:ale_completion_enabled = 1
 let g:ale_completion_delay = 200
 let g:ale_completion_max_suggestions = 10
 
-inoremap <silent><expr> <tab>
-      \ pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <silent><expr> <s-tab>
-      \ pumvisible() ? "\<c-p>" : "\<s-tab>"
-inoremap <silent><expr> <cr>
-      \ pumvisible() ? "\<c-y>" : "\<cr>"
-inoremap <silent><expr> <esc>
-      \ pumvisible() ? "\<c-e>" : "\<esc>"
+"inoremap <silent><expr> <tab>
+"      \ pumvisible() ? "\<c-n>" : "\<tab>"
+"inoremap <silent><expr> <s-tab>
+"      \ pumvisible() ? "\<c-p>" : "\<s-tab>"
+"inoremap <silent><expr> <cr>
+"      \ pumvisible() ? "\<c-y>" : "\<cr>"
+"inoremap <silent><expr> <esc>
+"      \ pumvisible() ? "\<c-e>" : "\<esc>"
 
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_lint_delay = 500
@@ -204,12 +203,12 @@ highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 highlight ALEInfoSign ctermbg=NONE ctermfg=green
 
-nnoremap <leader>ad :ALEGoToDefinition<cr>
-nnoremap <leader>at :ALEGoToTypeDefinition<cr>
-nnoremap <leader>ar :ALEFindReferences -relative<cr>
-nnoremap <leader>ah :ALEHover<cr>
-nnoremap <leader>an :ALENext<cr>
-nnoremap <leader>ap :ALEPrevious<cr>
+"nnoremap <leader>ad :ALEGoToDefinition<cr>
+"nnoremap <leader>at :ALEGoToTypeDefinition<cr>
+"nnoremap <leader>ar :ALEFindReferences -relative<cr>
+"nnoremap <leader>ah :ALEHover<cr>
+"nnoremap <leader>an :ALENext<cr>
+"nnoremap <leader>ap :ALEPrevious<cr>
 
 "let g:ale_set_balloons = 0
 
@@ -225,4 +224,48 @@ let g:ale_linters = {
 	\ 'go': ['gopls'],
 	\ }
 
-let g:airline#extensions#ale#enabled = 1
+"" LSC
+
+let g:lsc_server_commands = {
+      \ 'python': {
+      \   'command': 'pyls',
+      \   'log_level': -1,
+      \   'suppress_stderr': v:true,
+      \ },
+      \ 'go': {
+      \   'command': 'gopls serve',
+      \   'log_level': -1,
+      \   'suppress_stderr': v:true,
+      \ },
+      \}
+
+let g:lsc_auto_map = {
+      \ 'GoToDefinition': '<C-]>',
+      \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
+      \ 'FindReferences': 'gr',
+      \ 'NextReference': '<C-n>',
+      \ 'PreviousReference': '<C-p>',
+      \ 'FindImplementations': 'gI',
+      \ 'FindCodeActions': 'ga',
+      \ 'Rename': 'gR',
+      \ 'ShowHover': v:true,
+      \ 'DocumentSymbol': 'go',
+      \ 'WorkspaceSymbol': 'gS',
+      \ 'SignatureHelp': 'gm',
+      \ 'Completion': 'completefunc',
+      \}
+"let g:lsc_auto_map = {
+"      \ 'GoToDefinition': 'gd',
+"      \ 'FindReferences': 'gr',
+"      \ 'FindImplementations': 'gI',
+"      \ 'Rename': 'gR',
+"      \ 'ShowHover': 'K',
+"      \ 'FindCodeActions': 'ga',
+"      \ 'Completion': 'omnifunc',
+"      \}
+
+let g:lsc_enable_autocomplete = v:true
+let g:lsc_enable_diagnostics = v:true
+let g:lsc_reference_highlights = v:true
+let g:lsc_trace_level = 'off'
+let g:lsc_preview_split_direction = 'below'

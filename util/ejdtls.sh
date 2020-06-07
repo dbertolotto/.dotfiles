@@ -1,10 +1,16 @@
 #!/usr/bin/bash
 
-jdtpath=~/.vim/plugged/youcompleteme/third_party/ycmd/third_party/eclipse.jdt.ls/target/repository
+# Directory where the language server was uncompressed
+jdtpath=~/.ejdtls
 
+# Set here the right config for your system
 config=config_linux
 
-launcher=org.eclipse.equinox.launcher_1.5.500.v20190715-1310.jar
+# Name of the launcher file
+launcher=org.eclipse.equinox.launcher_1.5.700.v20200207-2156.jar
+
+# Directory where server data will be stored
+datapath=~/.javalsp
 
 java \
   -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1044 \
@@ -16,7 +22,7 @@ java \
   -Xmx1G \
   -jar $jdtpath/plugins/$launcher \
   -configuration $jdtpath/$config \
-  -data ~/.javalsp \
+  -data $datapath \
   --add-modules=ALL-SYSTEM \
   --add-opens java.base/java.util=ALL-UNNAMED \
   --add-opens java.base/java.lang=ALL-UNNAMED

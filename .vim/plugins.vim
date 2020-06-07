@@ -29,20 +29,18 @@ Plug 'reedes/vim-pencil'
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'thomasfaingnaert/vim-lsp-snippets'
-Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+"Plug 'thomasfaingnaert/vim-lsp-snippets'
+"Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
-" autocompletion engine
-"Plug 'valloric/youcompleteme', { 'do': '~/.vim/ycm-install.sh' }
-
-" completion/lsp
-"Plug 'natebosch/vim-lsc'
+" completion/lsp v1
+Plug 'natebosch/vim-lsc'
 "Plug 'ajh17/VimCompletesMe'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" completion/lsp v2
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'mattn/vim-lsp-settings'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 " linting & fixing
 "Plug 'dense-analysis/ale'
