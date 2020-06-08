@@ -245,7 +245,7 @@ let g:lsc_server_commands = {
       \}
 
 let g:lsc_auto_map = {
-      \ 'GoToDefinition': '<C-]>',
+      \ 'GoToDefinition': 'gd',
       \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
       \ 'FindReferences': 'gr',
       \ 'NextReference': '<C-n>',
@@ -257,20 +257,10 @@ let g:lsc_auto_map = {
       \ 'DocumentSymbol': 'go',
       \ 'WorkspaceSymbol': 'gS',
       \ 'SignatureHelp': 'gm',
-      \ 'Completion': 'completefunc',
+      \ 'Completion': 'omnifunc',
       \}
-"let g:lsc_auto_map = {
-"      \ 'GoToDefinition': 'gd',
-"      \ 'FindReferences': 'gr',
-"      \ 'FindImplementations': 'gI',
-"      \ 'Rename': 'gR',
-"      \ 'ShowHover': 'K',
-"      \ 'FindCodeActions': 'ga',
-"      \ 'Completion': 'omnifunc',
-"      \}
 
 let g:lsc_enable_autocomplete = v:true
 let g:lsc_enable_diagnostics = v:true
 let g:lsc_reference_highlights = v:true
 let g:lsc_trace_level = 'off'
-let g:lsc_preview_split_direction = 'below'
