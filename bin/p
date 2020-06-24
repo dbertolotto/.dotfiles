@@ -1,0 +1,27 @@
+#!/data/data/com.termux/files/usr/bin/pil
+
+(setq *ProjFile "proj.l")
+(setq *ProjDir NIL)
+
+(de load+ @
+  (apply 'load
+         (mapcar
+         '((S)
+           (let Stream (chop S)
+             (if (= (car Stream) "#")
+               (pack *ProjDir "/" (cdr Stream))
+               S)))
+         (rest))))
+
+(let Pwd (pwd)
+  (until *ProjDir
+    (if (member *ProjFile (dir))
+      (setq *ProjDir (pwd))
+      (unless (and (cd "..") (<> @ "/"))
+        (prinl "Project not found")
+        (setq *ProjDir T))))
+  (cd Pwd))
+
+(when (and *ProjDir (nT *ProjDir))
+  (load (pack *ProjDir "/" *ProjFile)))
+
