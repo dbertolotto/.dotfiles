@@ -1,5 +1,9 @@
 # vi: ft=bash
 
+# go
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
+
 # path extension
 export PATH=$PATH:~/bin
 
