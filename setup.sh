@@ -24,6 +24,7 @@ linker .tmux.conf
 linker .vim
 linker .emacs.d
 linker bin
+linker .config/nvim
 
 echo "Done!"
 echo "Backed up files are in $bu"

@@ -1,5 +1,8 @@
 # vi: ft=bash
 
+# explicitly set language
+export LANG=en_US.UTF-8
+
 # go
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin

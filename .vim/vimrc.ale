@@ -1,0 +1,53 @@
+" vi: ft=vim
+"" ALE configuration
+
+"set omnifunc=ale#completion#OmniFunc
+let g:ale_completion_enabled = 1
+let g:ale_completion_delay = 200
+let g:ale_completion_max_suggestions = 10
+
+"inoremap <silent><expr> <tab>
+"      \ pumvisible() ? "\<c-n>" : "\<tab>"
+"inoremap <silent><expr> <s-tab>
+"      \ pumvisible() ? "\<c-p>" : "\<s-tab>"
+"inoremap <silent><expr> <cr>
+"      \ pumvisible() ? "\<c-y>" : "\<cr>"
+"inoremap <silent><expr> <esc>
+"      \ pumvisible() ? "\<c-e>" : "\<esc>"
+
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_lint_delay = 500
+
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
+let g:ale_sign_info = 'I'
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+highlight ALEInfoSign ctermbg=NONE ctermfg=green
+
+"nnoremap <leader>ad :ALEGoToDefinition<cr>
+"nnoremap <leader>at :ALEGoToTypeDefinition<cr>
+"nnoremap <leader>ar :ALEFindReferences -relative<cr>
+"nnoremap <leader>ah :ALEHover<cr>
+"nnoremap <leader>an :ALENext<cr>
+"nnoremap <leader>ap :ALEPrevious<cr>
+
+"let g:ale_set_balloons = 0
+
+let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'python' : ['autopep8', 'yapf'],
+      \ 'go' : ['gofmt', 'goimports']
+      \ }
+"let g:ale_fix_on_save = 1
+
+let g:ale_linters = {
+	\ 'python': ['pyls'],
+	\ 'go': ['gopls'],
+	\ }
+

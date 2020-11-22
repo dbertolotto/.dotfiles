@@ -1,8 +1,11 @@
 "" Plugins (in separate file)
-source ~/.vim/plugins.vim
+source ~/.vim/vimrc.plug
 
 "" custom suntax highlighting
 source ~/.vim/syntax/picolisp.vim
+
+"" coc.nvim configuration
+source ~/.vim/vimrc.coc
 
 "" redefine leader
 let mapleader = ','
@@ -73,6 +76,7 @@ map <leader>lr :set rnu!<cr>
 
 "" color scheme
 set t_Co=256
+set background=dark
 silent! colorscheme badwolf
 
 "" airline
@@ -101,166 +105,21 @@ let g:EditorConfig_exclude_patterns = [
       \ 'scp://.\*',
       \ ]
 
-"" YCM
-"let g:ycm_add_preview_to_completeopt = 1
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_key_list_select_completion = ['<tab>']
-"let g:ycm_key_list_previous_completion = ['<s-tab>']
-"let g:ycm_key_list_stop_completion = ['<c-w>']
-
-" YouCompleteMeMappings
-"nnoremap ,gt :YcmCompleter GetType<CR>
-"nnoremap ,dl :YcmCompleter GoToDeclaration<CR>
-"nnoremap ,df :YcmCompleter GoToDefinition<CR>
-"nnoremap ,#  :YcmCompleter GoToReferences<CR>
-
 "" Trigger configuration.
 "" Do not use <tab> if you use YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsExpandTrigger="<leader><tab>"
 "let g:UltiSnipsJumpForwardTrigger="<c-f>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
-"" LSP
+"" YCM configuration
+"source ~/.vim/vimrc.ycm
 
-"function! s:on_lsp_buffer_enabled() abort
-"  setlocal omnifunc=lsp#complete
-"  setlocal signcolumn=yes
-"  "nmap <buffer> gd <plug>(lsp-definition)
-"  "nmap <buffer> <f2> <plug>(lsp-rename)
-"  " refer to doc to add more commands
-"endfunction
-"
-"augroup lsp_install
-"  au!
-"  " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-"  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-"augroup END
-"
-"" folding
-"set foldmethod=expr
-"      \ foldexpr=lsp#ui#vim#folding#foldexpr()
-"      \ foldtext=lsp#ui#vim#folding#foldtext()
-let g:lsp_fold_enabled = 0
+"" LSP configuration
+"source ~/.vim/vimrc.lsp
 
-" diagnostics
-let g:lsp_diagnostics_enabled = 0
+"" ALE configuration
+"source ~/.vim/vimrc.ale
 
-" signs
-let g:lsp_signs_enabled = 1
-let g:lsp_signs_error = {'text': 'E'}
-let g:lsp_signs_warning = {'text': 'W'}
-let g:lsp_signs_information = {'text': 'I'}
-let g:lsp_signs_hint = {'text': 'H'}
+"" LSC configuration
+"source ~/.vim/vimrc.lsc
 
-" echo under cursor when in normal mode
-let g:lsp_diagnostics_echo_cursor = 1
-
-" highlights
-let g:lsp_highlights_enabled = 1
-let g:lsp_textprop_enabled = 1
-
-" virtual text
-let g:lsp_virtual_text_enabled = 1
-
-" highlight references
-let g:lsp_highlight_references_enabled = 1
-
-" debugging for lsp
-"let g:lsp_log_verbose = 1
-"let g:lsp_log_file = expand('~/vim-lsp.log')
-
-" debugging for asyncomplete
-"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-
-"" ALE
-
-"set omnifunc=ale#completion#OmniFunc
-let g:ale_completion_enabled = 1
-let g:ale_completion_delay = 200
-let g:ale_completion_max_suggestions = 10
-
-"inoremap <silent><expr> <tab>
-"      \ pumvisible() ? "\<c-n>" : "\<tab>"
-"inoremap <silent><expr> <s-tab>
-"      \ pumvisible() ? "\<c-p>" : "\<s-tab>"
-"inoremap <silent><expr> <cr>
-"      \ pumvisible() ? "\<c-y>" : "\<cr>"
-"inoremap <silent><expr> <esc>
-"      \ pumvisible() ? "\<c-e>" : "\<esc>"
-
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_lint_delay = 500
-
-let g:ale_sign_error = 'E'
-let g:ale_sign_warning = 'W'
-let g:ale_sign_info = 'I'
-
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-highlight ALEInfoSign ctermbg=NONE ctermfg=green
-
-"nnoremap <leader>ad :ALEGoToDefinition<cr>
-"nnoremap <leader>at :ALEGoToTypeDefinition<cr>
-"nnoremap <leader>ar :ALEFindReferences -relative<cr>
-"nnoremap <leader>ah :ALEHover<cr>
-"nnoremap <leader>an :ALENext<cr>
-"nnoremap <leader>ap :ALEPrevious<cr>
-
-"let g:ale_set_balloons = 0
-
-let g:ale_fixers = {
-      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'python' : ['autopep8', 'yapf'],
-      \ 'go' : ['gofmt', 'goimports']
-      \ }
-"let g:ale_fix_on_save = 1
-
-let g:ale_linters = {
-	\ 'python': ['pyls'],
-	\ 'go': ['gopls'],
-	\ }
-
-"" LSC
-
-let g:lsc_server_commands = {
-      \ 'python': {
-      \   'command': 'pyls',
-      \   'log_level': -1,
-      \   'suppress_stderr': v:true,
-      \ },
-      \ 'go': {
-      \   'command': 'gopls.sh',
-      \   'log_level': -1,
-      \   'suppress_stderr': v:true,
-      \ },
-      \ 'java': {
-      \   'command': 'ejdtls.sh',
-      \   'log_level': -1,
-      \   'suppress_stderr': v:true,
-      \ },
-      \}
-
-let g:lsc_auto_map = {
-      \ 'GoToDefinition': 'gd',
-      \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
-      \ 'FindReferences': 'gr',
-      \ 'NextReference': '<C-n>',
-      \ 'PreviousReference': '<C-p>',
-      \ 'FindImplementations': 'gI',
-      \ 'FindCodeActions': 'ga',
-      \ 'Rename': 'gR',
-      \ 'ShowHover': v:true,
-      \ 'DocumentSymbol': 'go',
-      \ 'WorkspaceSymbol': 'gS',
-      \ 'SignatureHelp': 'gm',
-      \ 'Completion': 'omnifunc',
-      \}
-
-let g:lsc_enable_autocomplete = v:true
-let g:lsc_enable_diagnostics = v:true
-let g:lsc_reference_highlights = v:true
-let g:lsc_trace_level = 'off'

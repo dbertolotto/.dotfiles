@@ -1,0 +1,14 @@
+" vi: ft=vim
+" YCM (youcompleteme) configuration
+
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_key_list_select_completion = ['<tab>']
+let g:ycm_key_list_previous_completion = ['<s-tab>']
+let g:ycm_key_list_stop_completion = ['<c-w>']
+
+" YouCompleteMeMappings
+"nnoremap ,gt :YcmCompleter GetType<CR>
+"nnoremap ,dl :YcmCompleter GoToDeclaration<CR>
+"nnoremap ,df :YcmCompleter GoToDefinition<CR>
+"nnoremap ,#  :YcmCompleter GoToReferences<CR>
