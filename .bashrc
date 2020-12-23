@@ -21,6 +21,9 @@ acfile="/etc/bash_completion"
 # activate fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# remove stack size limit
+ulimit -s unlimited
+
 # color for the prompt
 c1='\[\e[37;40m\]' # light gray on black
 c2='\[\e[32;40m\]' # green on black
