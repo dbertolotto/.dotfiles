@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/pil
+#!/usr/bin/env pil
 
 (setq *ProjFile "proj.l")
 (setq *ProjDir NIL)
