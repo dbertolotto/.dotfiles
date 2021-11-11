@@ -1,0 +1,13 @@
+" vi: ft=vim
+" Autopair configuration
+
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsShortcutBackInsert = '<M-b>'
+
+augroup AutoPairsGroup
+  autocmd!
+  autocmd FileType html,xml let b:AutoPairs=extend(copy(g:AutoPairs), { '<':'>', '<!--':'-->' })
+  autocmd FileType lisp let b:AutoPairs={ '"':'"', '(':')' }
+  autocmd FileType picolisp let b:AutoPairs={ '"':'"', '(':')', '{':'}' }
+augroup end
+

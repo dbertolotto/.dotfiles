@@ -12,12 +12,12 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf' }
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'jiangmiao/auto-pairs'
 "Plug 'terryma/vim-multiple-cursors'
 "Plug 'mattn/emmet-vim'
 "Plug 'tpope/vim-surround'
 "Plug 'scrooloose/nerdcommenter'
 "Plug 'nathanaelkane/vim-indent-guides'
-"Plug 'jiangmiao/auto-pairs'
 
 " text editing
 Plug 'junegunn/goyo.vim'
@@ -28,8 +28,6 @@ Plug 'pangloss/vim-javascript'    " JavaScript support
 Plug 'leafgarland/typescript-vim' " TypeScript syntax
 Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
 Plug 'jparise/vim-graphql'        " GraphQL syntax
-" Use release branch (recommend)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " clojure
 "Plug 'tpope/vim-salve'
