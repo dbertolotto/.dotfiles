@@ -166,3 +166,24 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Auto-install extensions
+let g:coc_global_extensions = [
+      \ 'coc-angular',
+      \ 'coc-css',
+      \ 'coc-eslint',
+      \ 'coc-git',
+      \ 'coc-go',
+      \ 'coc-html',
+      \ 'coc-html-css-support',
+      \ 'coc-java',
+      \ 'coc-json',
+      \ 'coc-markdownlint',
+      \ '@yaegassy/coc-pylsp',
+      \ 'coc-sh',
+      \ 'coc-svg',
+      \ 'coc-swagger',
+      \ 'coc-tsserver',
+      \ 'coc-xml',
+      \ 'coc-yaml'
+      \ ]

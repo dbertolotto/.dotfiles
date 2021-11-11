@@ -23,6 +23,14 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
 
+" JavaScript
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'jparise/vim-graphql'        " GraphQL syntax
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " clojure
 "Plug 'tpope/vim-salve'
 "Plug 'tpope/vim-projectionist'
@@ -59,6 +67,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'sjl/badwolf'
 
 Plug 'easymotion/vim-easymotion'
+
+Plug 'dbakker/vim-projectroot'
+Plug 'haberdashPI/vim-multi-repl'
 
 call plug#end()
 

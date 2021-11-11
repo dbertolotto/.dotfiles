@@ -123,3 +123,14 @@ let g:UltiSnipsExpandTrigger="<leader><tab>"
 "" LSC configuration
 "source ~/.vim/vimrc.lsc
 
+augroup PicolispREPL
+  au!
+  au FileType picolisp let b:repl_program='pil +'
+  au FileType picolisp let b:repl_cd_prefix='(cd "'
+  au FileType picolisp let b:repl_cd_suffix='")'
+  au FileType picolisp let b:repl_run_prefix='(load "'
+  au FileType picolisp let b:repl_run_suffix='")'
+  au FileType picolisp let b:repl_send_text_delay='50m'
+"  au FileType picolisp let b:repl_send_prefix="%cpaste\n"
+"  au FileType picolisp let b:repl_send_suffix="\n--\n"
+augroup END
